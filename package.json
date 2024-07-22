@@ -1,0 +1,40 @@
+{
+  "name": "treeshaking-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pnpm run build:webpack && pnpm run build:rollup && pnpm run build:vite && pnpm run build:esbuild",
+    "clean": "pnpm run clean:webpack && pnpm run clean:rollup && pnpm run clean:vite && pnpm run clean:esbuild",
+    "start": "node src/index.js",
+    "build:webpack": "webpack -c config/webpack.config.mjs",
+    "start:webpack": "node dist/webpack/bundle.esm.mjs",
+    "clean:webpack": "rm -rf dist/webpack",
+    "build:rollup": "rollup -c config/rollup.config.mjs",
+    "start:rollup": "node dist/rollup/bundle.es.mjs",
+    "clean:rollup": "rm -rf dist/rollup",
+    "build:vite": "vite build -c config/vite.config.mjs",
+    "start:vite": "node dist/vite/bundle.js",
+    "clean:vite": "rm -rf dist/vite",
+    "build:esbuild": "node config/esbuild.script.mjs",
+    "start:esbuild": "node dist/esbuild/bundle.esm.mjs",
+    "clean:esbuild": "rm -rf dist/esbuild"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903",
+  "devDependencies": {
+    "esbuild": "^0.23.0",
+    "rollup": "^4.19.0",
+    "vite": "^5.3.4",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "remeda": "^2.6.0"
+  }
+}
